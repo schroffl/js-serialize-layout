@@ -1,0 +1,16 @@
+{
+  "name": "serialize-layout",
+  "version": "0.1.0",
+  "description": "JavaScript Object De-/Serialization according to a well-defined layout",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "schroffl",
+  "license": "MIT",
+  "keywords": ["deserialize", "serialize", "serialization", "deserialization", "object", "class"],
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.1"
+  }
+}
