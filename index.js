@@ -25,7 +25,7 @@
       return info.key;
   }
 
-  exportTo.deserialize = function(ctor, layout, data) {
+  exportTo.deserialize = function(ctor, layout, data, input) {
     var obj = new ctor();
 
     for (var key in layout) {
@@ -38,7 +38,7 @@
       var value = data[dataKey];
 
       if (info && typeof info.from === 'function')
-        obj[key] = info.from(value);
+        obj[key] = info.from(value, input);
       else
         obj[key] = value;
     }
@@ -46,7 +46,7 @@
     return obj;
   };
 
-  exportTo.serialize = function(layout, obj) {
+  exportTo.serialize = function(layout, obj, input) {
     var data = {};
 
     for (var key in layout) {
@@ -59,7 +59,7 @@
           value = obj[key];
 
       if (info && info.to)
-        data[dataKey] = info.to(value);
+        data[dataKey] = info.to(value, input);
       else
         data[dataKey] = value;
     }
