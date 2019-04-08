@@ -70,7 +70,7 @@
   exportTo.wrap = function(ctor, layout) {
     return {
       deserialize: exportTo.deserialize.bind(null, ctor, layout),
-      serialize: exportTo.deserialize.bind(null, layout)
+      serialize: exportTo.serialize.bind(null, layout)
     };
   };
 
