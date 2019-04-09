@@ -81,5 +81,22 @@
     ctor.serialize = wrapper.serialize;
   };
 
+  function __default_typescript_static_method() {
+    var cls = this;
+    var msg = '\n\n\t';
+
+    msg += 'It seems like you forgot to call SerializeLayout.makeSerializable ';
+    msg += 'on your \'' + cls.name + '\' class.\n\t';
+    msg += 'Or maybe you didn\'t include the code where the function is called.\n\t';
+    msg += 'If you are running minfied code and the class name is mangled, make\n\t';
+    msg += 'use of your browsers debugger to find out which class is meant.\n';
+
+    throw new Error(msg);
+  }
+
+  exportTo.Serializable = function() {};
+  exportTo.Serializable.deserialize = __default_typescript_static_method;
+  exportTo.Serializable.serialize = __default_typescript_static_method;
+
   return exportTo;
 }));
