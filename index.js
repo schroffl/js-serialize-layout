@@ -19,10 +19,10 @@
   function getDataKey(key, info) {
     if (typeof info === 'string')
       return info;
-    else if (!info)
-      return key;
-    else if (info.key)
+    else if (info && info.key)
       return info.key;
+    else
+      return key;
   }
 
   exportTo.deserialize = function(ctor, layout, data, input) {
